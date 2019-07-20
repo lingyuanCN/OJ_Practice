@@ -1,3 +1,4 @@
+#include <cstdlib>
 #include <cstdio>
 #include <cmath>
 #include <cstring>
@@ -18,5 +19,10 @@ int main(){
     printf("%s\n", s2);
     printf("%lu %lu\n", strlen(s1), strlen(s2));
     printf("%s %s\n", s1, s2);
+
+    char *s3 = (char *)malloc(12 * sizeof(char));
+    strcpy (s3, "hello world!");
+    printf("%s", s3);
+
     return 0;
 }
