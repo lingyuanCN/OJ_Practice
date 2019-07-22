@@ -1,7 +1,6 @@
 /*
 53. Maximum Subarray
 
-
 Given an integer array nums, find the contiguous subarray(containing at least one number) which has the largest sum and return its sum.
 
 Example:
@@ -29,7 +28,13 @@ public:
 	{
 		current_sum = nums[0];
 		current_max = nums[0];
-		cout << current_sum << ' ' << current_max << endl;
+		for (int i = 1; i < nums.size(); i++)
+		{
+			current_sum += nums[i];
+			current_max = max(max(current_sum, nums[i]), current_max);
+			current_sum = max(current_sum, nums[i]);
+		}
+		return current_max;
 	}
 };
 
@@ -37,5 +42,5 @@ int main()
 {
 	Solution s;
 	vector<int> nums = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
-	s.maxSubArray(nums);
+	cout << s.maxSubArray(nums) << endl;
 }
